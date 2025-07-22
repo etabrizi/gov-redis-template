@@ -1,0 +1,24 @@
+
+{% from "components/header/macro.njk" import govukHeader %}
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}My GOV.UK App{% endblock %}</title>
+    <link rel="stylesheet" href="/govuk/govuk-frontend.min.css">
+  </head>
+  <body class="govuk-template__body">
+    {{ govukHeader({
+  homepageUrl: "/"
+}) }}
+    <div class="govuk-width-container">
+      <main class="govuk-main-wrapper">
+        {% block content %}{% endblock %}
+      </main>
+    </div>
+  </body>
+</html>

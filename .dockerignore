@@ -1,0 +1,27 @@
+# OS & editor junk
+.DS_Store
+*.swp
+*.swo
+*.bak
+
+# Node
+node_modules
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Git
+.git
+.gitignore
+
+# Docker image exports (if you ever export images)
+*.tar
+
+# Logs
+logs
+*.log

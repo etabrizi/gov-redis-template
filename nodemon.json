@@ -1,0 +1,9 @@
+{
+  "watch": [
+    "app.js",
+    "views",
+    "node_modules/govuk-frontend/dist/govuk/components"
+  ],
+  "ext": "js,njk",
+  "ignore": ["node_modules/**/!(govuk-frontend)"]
+}

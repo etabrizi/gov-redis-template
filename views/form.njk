@@ -1,0 +1,30 @@
+{% extends "layout.njk" %}
+
+{% from "components/input/macro.njk" import govukInput %}
+{% from "components/button/macro.njk" import govukButton %}
+{% from "components/error-summary/macro.njk" import govukErrorSummary %}
+
+{% block title %}Enter your name{% endblock %}
+
+{% block content %}
+{% if error %}
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: error.summary
+    }) }}
+  {% endif %}
+  <h1 class="govuk-heading-l">What’s your name?</h1>
+
+  <form method="POST">
+    {{ govukInput({
+      label: { text: "What is your name?" },
+      id: "name",
+      name: "name",
+      errorMessage: error and {
+        text: error.message
+      }
+    }) }}
+
+    {{ govukButton({ text: "Submit" }) }}
+  </form>
+{% endblock %}

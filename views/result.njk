@@ -1,0 +1,8 @@
+{% extends "layout.njk" %}
+{% block title %}Greeting{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-l">Hello {{ name | safe }}!</h1>
+  <p class="govuk-body">Your age range: {{ age }}</p>
+  <p><a class="govuk-link" href="/">Try again</a></p>
+{% endblock %}

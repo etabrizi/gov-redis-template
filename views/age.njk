@@ -1,0 +1,55 @@
+{% from "components/error-summary/macro.njk" import govukErrorSummary %}
+{% from "components/radios/macro.njk" import govukRadios %}
+{% extends "layout.njk" %}
+
+{% block content %}
+  <h1 class="govuk-heading-l">Select your age range</h1>
+
+  {% if error %}
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: error.summary
+    }) }}
+  {% endif %}
+
+  <form action="/age/{{ id }}" method="post">
+    {{ govukRadios({
+      idPrefix: "age",
+      name: "age",
+      fieldset: {
+        legend: {
+          text: "What is your age range?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      errorMessage: error and {
+        text: error.message
+      },
+      items: [
+        {
+          value: "Under 18",
+          text: "Under 18"
+        },
+        {
+          value: "18-34",
+          text: "18 to 34"
+        },
+        {
+          value: "35-49",
+          text: "35 to 49"
+        },
+        {
+          value: "50-64",
+          text: "50 to 64"
+        },
+        {
+          value: "65+",
+          text: "65 and over"
+        }
+      ]
+    }) }}
+
+    <button class="govuk-button" type="submit">Continue</button>
+  </form>
+{% endblock %}
